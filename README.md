@@ -1,5 +1,5 @@
 # CNEReg    
-CNEReg is a Conserved Non-coding Elements interpretation method by Paired Expression and Chromatin Accessibility data which can identify active and active selected regulatory elements and their gene regulatory network.
+CNEReg is an evolutionary Conserved Non-coding Element interpretation method by gene Regulatory network to integrate paired time-course expression and chromatin accessibility data with the available public data, including comparative genomics data and comparative transcriptomic data.
 ____________________________________      
 #  1. Data availablility    
 # (1) Raw data    
