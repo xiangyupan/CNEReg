@@ -1,6 +1,6 @@
 library(readxl)
 
-al<-read.csv("Bing&Correlation.csv")
+al<-read.csv("Binding&Correlation.csv")
 RNA<-read_excel("RNA_average.xlsx")
 ATAC<-read_excel("ATAC_average.xlsx")
 
