@@ -16,12 +16,60 @@ The final processed data are defined as the data on which the conclusions in the
    
 
 # (1) The "heatmap&PCA_of_Chromatin_accessibility.R" script was used to draw the correlation heatmap and PCA for chromatin accessibility.   
-The input file "openness_RUMEN.csv" is the normalized openness matrix of each active-RSCNEs of each time point.    
+The input file "openness_RUMEN.csv" includes the normalized openness matrix of each active-RSCNEs of each time point.    
 `Rscript heatmap&PCA_of_Chromatin_accessibility.R openness_RUMEN.csv heatmap_of_Chromatin_accessibility.pdf PCA_of_Chromatin_accessibility.pdf`   
 # (2) The "heatmap&PCA of Gene Expression.R" script was used to draw the correlation heatmap and PCA for gene expression.   
-The input file "RNA-seq_RUMEN.csv" is the gene FPKM matrix file of rumen and esophagus during development.    
-The input file "sif.xlsx" stored the batch effect info.   
+The first input file "RNA-seq_RUMEN.csv" includes the gene FPKM matrix file of rumen and esophagus during development.    
+The second input file "sif.xlsx" stored the batch effect info.   
+Two output files are in PDF format.   
 `Rscript heatmap&PCA of Gene Expression.R RNA-seq_RUMEN.csv sif.xlsx heatmap_of_Gene_expression.pdf  PCA_of_Gene_expression.pdf`   
+# CNEReg model requires input as time series of paired ATAC-seq and RNA-seq data during rumen and esophagus development in sheep. We processed a expression matrix with row genes and column samples for RNA-seq data and a chromatin accessibility matrix with row peaks and column samples named RNA-seq.csv and openness.csv in downstream.R. An equivalent process was performed to generate RNA-seq-TF.csv for TTF in upstream(lasso).R and upstream(lm).R. The expression data of 23149 sheep genes with 830 replicate samples from 50 tissues were stored in sheep832.csv, then we calculated JSD scores and median expression data of all the genes in 50 tissues respectively and combined them into JMscore to measure the specificity of genes in different tissues in JMscore.R. With the subset of JMscore of 18 TTF, the hierarchical clustering diagram was showed by 18TTF-JMscore-cluster.R. 
+
+
+# (1) The "JMscore.R" script was used to calculate the JSD scores and median expression data of all the genes in 50 tissues and combined them into JMscore to measure the specificity of genes in different tissues with the subset of JMscore of 18 TTF.   
+The input file "sheep832.csv" includes the gene expression level of each gene in each sample from 830 sheep samples.   
+The first output file "JSD_sheep.csv" includes the Jensen-Shannon divergence of ench gene in each tissue.   
+The second output file "median_sheep.csv" includes the median expression level of ench gene in each tissue.   
+The third output file "JMscore_sheep.csv" includes the JMscore of ench gene in each tissue.   
+`Rscript JMscore.R sheep832.csv JSD_sheep.csv JSD_sheep.csv JMscore_sheep.csv`    
+# (2) The "18TTF-JMscore-cluster.R" script was used to darw the hierarchical clustering diagram.      
+The first input file "18TTFs-JSD.csv" includes the Jensen-Shannon divergence score of 18 TTFs in each tissue.   
+The second input file "18TTFs-median.csv" includes the median expression level of 18 TTFs in each tissue.   
+The output file "Phylogeny_of_50_tissues.pdf" is the phylogeny tree of 50 tissues clustered by 18 TTFs.     
+# (3) The "upstream(lasso).R" script was used to generate RNA-seq-TF.csv for TTF in upstream(lasso).R and upstream(lm).R.     
+Input:
+RNA-seq-TF.csv  [the expression level of each TF at each time point]
+openness.csv  [the accessibility level of each RSCNE at each time point]
+19TTF-upbinding.csv  [the TF binding information of each TTF predicted by homer]
+19TTF-RSCNE(LASSO).csv  [the RSCNEs selected by LASSO]
+
+Output:
+19TTF-up-lm.csv  [the TFs and RSCNEs for linear regression]
+
+
+upstream(lm).R
+Input:
+RNA-seq-TF.csv  [the expression level of each TF at each time point]
+openness.csv  [the accessibility level of each RSCNE at each time point]
+19TTF-up-lm(cor0.6).csv  [the TFs selected by cor(TF,TTF)>0.6]
+
+Output:
+19TTF-up-RSCNE.csv   [the RSCNEs remained in the upstream network]
+
+
+downstream.R
+Input:
+openness.csv  [the accessibility level of each RSCNE at each time point]
+RNA-seq.csv  [the expression level of each gene at each time point]
+17TTF-downstream.csv  [the regulatory relationship of TTFs predicted by humor]
+
+Output:
+downstream_network.csv  [the regulatory network of TTFs in the downstream]
+
+
+
+
+
 # (3) The "functional influence_upstream.R" script was used to calculate the functional influence of active-RSCNEs in the TTF upstream network.     
 The input file "ATAC_average.xlsx" is the accessibility level of each active-RSCNE at each time point.
 The input file "RNA_average.xlsx"  is the gene expression level of each TF at each time point.    
