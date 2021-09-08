@@ -1,10 +1,12 @@
+library(dplyr)
+
 openness<-read.table('openness.csv',sep=",",header=T)
 Filtered_RNAseq<-read.table('RNAseq.csv',sep=",",header=T)
 label<-read.table('17TTF-downstream.csv',sep=",",header=T)
-dim(label)
+
 corr<-vector();p_value<-vector();q_value<-vector()
 
-for(i in 1:4527){
+for(i in 1:nrow(label)){
   Odata<-subset(openness[,-c(1,2)],openness$region == as.character(label[i,1]))
   O<-as.numeric((Odata-min(Odata))/(max(Odata)-min(Odata)))
   Edata<-subset(Filtered_RNAseq[,-1],Filtered_RNAseq$gene == as.character(label[i,5]))
@@ -16,7 +18,8 @@ for(i in 1:4527){
 }
 
 q_value <- p.adjust(p_value,method = "fdr")
-write.csv(corr,"corr.csv")
-write.csv(p_value,"pvalue.csv")
-write.csv(q_value,"qvalue(fdr).csv")
+downstream = cbind(label,corr,p_value,q_value)
+network = downstream  %>% filter(downstream$corr > 0.7 & downstream$q_value < 0.05)
+
+write.csv(network,"downstream_network.csv")
 

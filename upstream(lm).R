@@ -1,6 +1,6 @@
 TFexpdata<-read.table('RNA-seq-TF.csv',sep=",",header=T)
 opennessdata<-read.table('openness.csv',sep=",",header=T)
-mapping<-read.table('19TTF-up-lm(unique&cor0.6).csv',sep=",",header=T)
+mapping<-read.table('19TTF-up-lm(cor0.6).csv',sep=",",header=T)
 TFname<-unique(mapping[,1])
 
 k=19       ###########different TTF#########
@@ -27,7 +27,7 @@ TTFscale<-(TTF-min(TTF))/(max(TTF)-min(TTF))
 X=as.matrix(t(sqrt(Oscale*Ascale)))
 
 openness=as.data.frame(X)
-#paste("V", 1:11, sep = "",collapse="+") 
-summary(lm (TTFscale ~ V1+V2+V3+V4+V5+V6+V7+V8, data = openness))  ########Choose Significant REs##########
 
+lm_TF = summary(lm (TTFscale ~ V1+V2+V3+V4+V5+V6+V7+V8+V9+V10+V11, data = openness))  ########Choose Significant REs##########
+write(RSCNE[which(lm_TF$coefficients[-1,4]<0.05)],"19TTF-up-RSCNE.csv")
 
