@@ -1,5 +1,7 @@
 # CNEReg    
-CNEReg is an evolutionary Conserved Non-coding Element interpretation method by gene Regulatory network to integrate paired time-course expression and chromatin accessibility data with the available public data, including comparative genomics data and comparative transcriptomic data.
+CNEReg is an evolutionary Conserved Non-coding Element interpretation method by gene Regulatory network to integrate paired time-course expression and chromatin accessibility data with the available public data, including comparative genomics data and comparative transcriptomic data. CNEReg aims to systematically fill the gap between conserved non-coding elements (CNEs) and its significantly impacted morphology in evolution. This is done by reconstructing a developmental regulatory network by paired time series of paired gene expression and chromatin accessibility data.Particularly in sheep CNEs are RSCNEs and morphology is the innovation of rumen organ, which is further denoted by the set of rumen specific genes RSEGs. We reconstruct gene regulatory network during rumen development to systematically understand how the TFs regulate genes via batteries of RSCNEs, which over development, lead to the cell type specific activation of RSEGs.    
+The main idea of CNEReg is to focus on those toolkit TFs as major players in evo-devo studies to study how those TFs are regulated by RSCNEs and how they utilize RSCNEs to regulate RSEGs. CNEReg models the expression of target genes (TG) conditional on chromatin accessibility of RSCNEs and expression of transcription factors (TF).    
+
 ____________________________________      
 # 1. Data availablility    
 # (1) Raw data    
@@ -12,7 +14,7 @@ The final processed data are defined as the data on which the conclusions in the
 # 2. Processing data    
 CNEReg model requires input as sample matched time-series RNA-seq and ATAC-seq, and RSCNEs with conservation scores from public data.    
 For RNA-seq, first we processed raw reads into an expression matrix with row genes and column samples.
-  
+
   
   
   
