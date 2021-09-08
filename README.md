@@ -15,10 +15,13 @@ The final processed data are defined as the data on which the conclusions in the
 # 2. Processing data    
    
 
-# (1) The "heatmap&PCA of Chromatin accessibility.R" script was used to draw the correlation heatmap and PCA for chromatin accessibility.
-`Rscript heatmap&PCA of Chromatin accessibility.R openness_RUMEN.csv heatmap of Chromatin accessibility.pdf PCA of Chromatin accessibility.pdf`   
+# (1) The "heatmap&PCA_of_Chromatin_accessibility.R" script was used to draw the correlation heatmap and PCA for chromatin accessibility.   
+The input file "openness_RUMEN.csv" is the normalized openness matrix of each active-RSCNEs of each time point.    
+`Rscript heatmap&PCA_of_Chromatin_accessibility.R openness_RUMEN.csv heatmap_of_Chromatin_accessibility.pdf PCA_of_Chromatin_accessibility.pdf`   
 # (2) The "heatmap&PCA of Gene Expression.R" script was used to draw the correlation heatmap and PCA for gene expression.   
-`Rscript heatmap&PCA of Gene Expression.R RNA-seq_RUMEN.csv sif.xlsx [If batch effects are needed to be considered] heatmap of Gene expression.pdf  PCA of Gene expression.pdf`   
+The input file "RNA-seq_RUMEN.csv" is the gene FPKM matrix file of rumen and esophagus during development.    
+The input file "sif.xlsx" stored the batch effect info.   
+`Rscript heatmap&PCA of Gene Expression.R RNA-seq_RUMEN.csv sif.xlsx heatmap_of_Gene_expression.pdf  PCA_of_Gene_expression.pdf`   
 # (3) The "functional influence_upstream.R" script was used to calculate the functional influence of active-RSCNEs in the TTF upstream network.     
 The input file "ATAC_average.xlsx" is the accessibility level of each active-RSCNE at each time point.
 The input file "RNA_average.xlsx"  is the gene expression level of each TF at each time point.    
@@ -37,11 +40,13 @@ The input file "type1.conservativeS.txt" is the conservation scores of type I ac
 The input file "type2.conservativeS.txt" is the conservation scores of type II active-RSCNES.   
 The output file "down-FI.csv" is the functional influence of active-RSNCEs in the TTF downstream network.     
 `Rscript functional_influence_downstream.R ATAC_average.xlsx RNA_average.xlsx Binding&Correlation_up.csv DRSCNE.xlsx type1.conservativeS.txt type2-a.conservativeS.txt down-FI.csv`     
-# (5) The "functional influence_diffNetwork.R" script was used to calculate the functional influence of active-RSCNEs in the differential subnetwork.   
-
-
-
-``
+# (5) The "functional influence_diffNetwork.R" script was used to calculate the functional influence of active-RSCNEs in the differential subnetwork between rumen and esophagus.   
+The input file "diff-single-system.txt" is the regulatory strength of each TF-RSCNE-TG pair at each time point.     
+The input file "DiffRSCNE.xlsx" stored active-RSCNEs in the differential subnetwork between rumen and esophagus.      
+The input file "type1.conservativeS.txt" is the conservation scores of type-I active-RSCNEs.      
+The input file "type2-a.conservativeS.txt" is the conservation scores of type-II active-RSCNEs.   
+The output file "diff-FI.csv" is the functional influence of active-RSCNEs in the differential subnetwork between rumen and esophagus.      
+`Rscript functional influence_diffNetwork.R diff-single-system.txt DiffRSCNE.xlsx type1.conservativeS.txt type2-a.conservativeS.txt diff-FI.csv`    
 
   
   
