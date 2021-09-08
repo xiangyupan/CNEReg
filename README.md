@@ -19,7 +19,9 @@ The final processed data are defined as the data on which the conclusions in the
 `Rscript heatmap&PCA of Chromatin accessibility.R openness_RUMEN.csv heatmap of Chromatin accessibility.pdf PCA of Chromatin accessibility.pdf`   
 # (2) The "heatmap&PCA of Gene Expression.R" script was used to draw the correlation heatmap and PCA for gene expression.   
 `Rscript heatmap&PCA of Gene Expression.R RNA-seq_RUMEN.csv sif.xlsx (If batch effects are needed to be considered) heatmap of Gene expression.pdf  PCA of Gene expression.pdf`   
-# (3) 
+# (3) The "functional influence_upstream.R" script was used to calculate the functional influence of active-RSCNEs in the TTF upstream network.     
+`Rscript functional influence_upstream.R ATAC_average.xlsx  [the accessibility level of each RE at each time point] RNA_average.xlsx  [the expression level of each TF at each time point] Binding&Correlation_up.csv [in the upstream network, the motif binding strength, B_i & spearman correlation of` $\sqrtTF_i*O$ and $TG_j,ρ_(ij)$ `URSCNE.xlsx  [RSCNEs in the upstream network] type1.conservativeS.txt  [conservation scores of type I RSCNEs]  type2-a.conservativeS.txt  [conservation scores of type II RSCNEs] up-FI.csv [functional influence of RSCNEs in the upstream network]`      
+
 
   
   
