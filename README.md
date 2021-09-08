@@ -22,9 +22,26 @@ The final processed data are defined as the data on which the conclusions in the
 # (3) The "functional influence_upstream.R" script was used to calculate the functional influence of active-RSCNEs in the TTF upstream network.     
 The input file "ATAC_average.xlsx" is the accessibility level of each active-RSCNE at each time point.
 The input file "RNA_average.xlsx"  is the gene expression level of each TF at each time point.    
-The input file "Binding&Correlation_up.csv" is the motif bingding strength ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn3.svg) and spearman correlation of ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn1.svg) and ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn2.svg)   
-`Rscript functional_influence_upstream.R ATAC_average.xlsx RNA_average.xlsx Binding&Correlation_up.csv URSCNE.xlsx type1.conservativeS.txt type2-a.conservativeS.txt up-FI.csv`      
+The input file "Binding&Correlation_up.csv" is the motif bingding strength ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn3.svg) and spearman correlation of ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn1.svg) and ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn2.svg)    
+The input file "URSCNE.xlsx" is the active-RSCNEs in the upstream network.    
+The input file "type1.conservativeS.txt" is the conservation scores of type I active-RSCNES.    
+The input file "type2.conservativeS.txt" is the conservation scores of type II active-RSCNES.   
+The output file "up-FI.csv" is the functional influence of active-RSNCEs in the TTF upstream network.   
+`Rscript functional_influence_upstream.R ATAC_average.xlsx RNA_average.xlsx Binding&Correlation_up.csv URSCNE.xlsx type1.conservativeS.txt type2-a.conservativeS.txt up-FI.csv`     
+# (4) The "functional influence_downstream.R" script was used to calculate the functional influence of active-RSCNEs in the TTF downstream network.   
+The input file "ATAC_average.xlsx" is the accessibility level of each active-RSCNE at each time point.    
+The input file "RNA_average.xlsx"  is the gene expression level of each TF at each time point.        
+The input file "Binding&Correlation_up.csv" is the motif bingding strength ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn3.svg) and spearman correlation of ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn1.svg) and ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn2.svg)    
+The input file "DRSCNE.xlsx" is the active-RSCNEs in the downstream network.    
+The input file "type1.conservativeS.txt" is the conservation scores of type I active-RSCNES.    
+The input file "type2.conservativeS.txt" is the conservation scores of type II active-RSCNES.   
+The output file "down-FI.csv" is the functional influence of active-RSNCEs in the TTF downstream network.     
+`Rscript functional_influence_downstream.R ATAC_average.xlsx RNA_average.xlsx Binding&Correlation_up.csv DRSCNE.xlsx type1.conservativeS.txt type2-a.conservativeS.txt down-FI.csv`     
+# (5) The "functional influence_diffNetwork.R" script was used to calculate the functional influence of active-RSCNEs in the differential subnetwork.   
 
+
+
+``
 
   
   
