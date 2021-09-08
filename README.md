@@ -22,7 +22,7 @@ The final processed data are defined as the data on which the conclusions in the
 # (3) The "functional influence_upstream.R" script was used to calculate the functional influence of active-RSCNEs in the TTF upstream network.     
 The input file "ATAC_average.xlsx" is the accessibility level of each active-RSCNE at each time point.
 The input file "RNA_average.xlsx"  is the gene expression level of each TF at each time point.    
-The input file "Binding&Correlation_up.csv" is the motif bingding strength and spearman correlation of ![image] 
+The input file "Binding&Correlation_up.csv" is the motif bingding strength ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn3.svg) and spearman correlation of ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn1.svg) and ![image](https://github.com/xiangyupan/CNEReg/blob/main/CodeCogsEqn2.svg)   
 `Rscript functional_influence_upstream.R ATAC_average.xlsx RNA_average.xlsx Binding&Correlation_up.csv URSCNE.xlsx type1.conservativeS.txt type2-a.conservativeS.txt up-FI.csv`      
 
 
