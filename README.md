@@ -33,13 +33,13 @@ The third output file "JMscore_sheep.csv" includes the JMscore of ench gene in e
 The first input file "18TTFs-JSD.csv" includes the Jensen-Shannon divergence score of 18 TTFs in each tissue.   
 The second input file "18TTFs-median.csv" includes the median expression level of 18 TTFs in each tissue.   
 The output file "Phylogeny_of_50_tissues.pdf" is the phylogeny tree of 50 tissues clustered by 18 TTFs.     
-# (5) The "upstream(lasso).R" script was used to generate RNA-seq-TF.csv for TTF in upstream(lasso).R and upstream(lm).R.     
+# (5) The "upstream(lasso).R" script was used to generate the TFs and RSCNEs under the linear regression model.        
 The first input file "RNA-seq-TF.csv" includes the expression level of each TF at each time point.      
 The second input file "openness.csv" includes the openness of each RSCNE at each time point.      
 The third input file "19TTF-upbinding.csv" includes the TF binding information of each TTF which predicted by homer.      
 The fourth input file "19TTF-RSCNE(LASSO).csv" is the RSCNEs selected by LASSO.   
 The outputfile "19TTF-up-lm.csv" includes the TFs and RSCNEs for linear regression.   
-# (6) The "upstream(lm).R" scrpit was used to 
+# (6) The "upstream(lm).R" scrpit was used to generate the RSCNEs of 19TTFs for the upstream network.     
 The first input file "RNA-seq-TF.csv" includes the expression level of each TF at each time point.        
 The second input file "openness.csv" includes the openness of each RSCNE at each time point.        
 The third input file "19TTF-up-lm(cor0.6).csv" includes the TFs selected by cor(TF,TTF)>0.6.    
