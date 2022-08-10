@@ -1,6 +1,5 @@
 # CNEReg    
 
-The main idea of CNEReg is to focus on those toolkit TFs as major players in evo-devo studies to study how those TFs are regulated by RSCNEs and how they utilize RSCNEs to regulate RSEGs. CNEReg models the expression of target genes (TG) conditional on chromatin accessibility of RSCNEs and expression of transcription factors (TF).    
 
 ____________________________________      
 # 1. Data availablility    
