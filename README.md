@@ -75,6 +75,6 @@ The output file "diff-FI.csv" is the functional influence of active-RSCNEs in th
 `Rscript functional influence_diffNetwork.R diff-single-system.txt DiffRSCNE.xlsx type1.conservativeS.txt type2-a.conservativeS.txt diff-FI.csv`    
   
 #  Reference    
-Xiangyu Pan, Zhaoxia Ma, Xinqi Sun, Hui Li, Tingting Zhang, Zhao Chen, Nini Wang, Wing Hung Wong, Wen Wang, Yu Jiang, Yong Wang. Interpreting ruminant specific conserved non-coding elements by reconstructing developmental regulatory network. (In submission).   
-
+X. Pan, Z. Ma, X. Sun, H. Li, T. Zhang, C. Zhao, N. Wang, R. Heller, W. Hung Wong,
+W. Wang, Y. Jiang, Y. Wang, CNEReg Interprets Ruminant-specific Conserved Non-coding Elements by Developmental Gene Regulatory Network, Genomics, Proteomics & Bioinformatics (2022), doi: https://doi.org/10.1016/j.gpb.2022.11.007
 * We'd love to hear from you. If you have any questions, please don't be hestitate to contact the author of this manuscript: [pan_xiangyu@nwafu.edu.cn](pan_xiangyu@nwafu.edu.cn)   
